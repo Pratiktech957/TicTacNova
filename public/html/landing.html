@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Tic Tac Toe - Next Gen Gaming</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/landing.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">LOADING EXPERIENCE...</div>
+    </div>
+
+    <!-- Three.js Canvas -->
+    <canvas id="threejs-canvas"></canvas>
+    <div class="floating-icons" id="floating-icons"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo-nav">ULTIMATE TIC TAC TOE</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#preview">Preview</a>
+                <a href="#footer">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Music Toggle -->
+    <div class="music-toggle" onclick="toggleMusic()" title="Toggle Background Music" id="music-toggle">🎵</div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">✨ NEXT GENERATION GAMING</div>
+            <h1 class="hero-title">Ultimate Tic Tac Toe</h1>
+            <p class="hero-tagline">Experience the classic game reimagined with stunning visuals, intelligent AI, and immersive gameplay. Are you ready to dominate?</p>
+            <div class="cta-buttons">
+                <a href="../html/index.html" class="play-button">
+                    🎮 Start Playing
+                </a>
+                <a href="#features" class="learn-button">
+                    📖 Learn More
+                </a>
+            </div>
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-number" id="player-count">10K+</div>
+                    <div class="stat-label">Active Players</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="games-count">500K+</div>
+                    <div class="stat-label">Games Played</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.9★</div>
+                    <div class="stat-label">User Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="section-header fade-in">
+            <div class="section-badge">FEATURES</div>
+            <h2 class="section-title">Why Choose Ultimate Tic Tac Toe?</h2>
+            <p class="section-description">Packed with features that make every game unforgettable</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🎮</div>
+                <h3>Interactive Gameplay</h3>
+                <p>Smooth animations, responsive controls, and buttery-smooth 60fps performance for the ultimate gaming experience.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🤖</div>
+                <h3>Smart AI Opponent</h3>
+                <p>Challenge our intelligent AI with multiple difficulty levels that adapt and learn from your playing style.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">👥</div>
+                <h3>Multiplayer Mode</h3>
+                <p>Play with friends locally or challenge players from around the world in real-time matches.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🏆</div>
+                <h3>Achievements & Stats</h3>
+                <p>Track your progress, unlock achievements, and climb the global leaderboards.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">⚡</div>
+                <h3>Lightning Fast</h3>
+                <p>Optimized performance ensures instant response times and zero lag during gameplay.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🎨</div>
+                <h3>Stunning Visuals</h3>
+                <p>Beautiful 3D effects, particle systems, and modern UI design that brings the game to life.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Preview Section -->
+    <section id="preview" class="game-preview">
+        <div class="preview-container">
+            <div class="preview-grid">
+                <div class="preview-image fade-in">
+                    🎯
+                </div>
+                <div class="preview-content fade-in">
+                    <h2>Game Preview</h2>
+                    <p>Immerse yourself in a gaming experience like no other. Every move matters, every strategy counts.</p>
+                    <div class="preview-features">
+                        <div class="preview-feature">
+                            <div class="preview-feature-icon">✨</div>
+                            <div>
+                                <strong>Dynamic Animations</strong>
+                                <p>Every action is beautifully animated</p>
+                            </div>
+                        </div>
+                        <div class="preview-feature">
+                            <div class="preview-feature-icon">🎭</div>
+                            <div>
+                                <strong>Multiple Themes</strong>
+                                <p>Customize your gaming experience</p>
+                            </div>
+                        </div>
+                        <div class="preview-feature">
+                            <div class="preview-feature-icon">🔊</div>
+                            <div>
+                                <strong>Immersive Audio</strong>
+                                <p>Rich sound effects and background music</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>ULTIMATE TIC TAC TOE</h3>
+                <p>The next generation of classic gaming. Built with passion, designed for perfection.</p>
+                <div class="social-links">
+                    <a href="https://github.com/Pratiktech957" target="_blank" class="social-link">G</a>
+                    <a href="https://www.linkedin.com/feed/" target="_blank" class="social-link">in</a>
+                    <a href="#" class="social-link">T</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#preview">Preview</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Download</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Ultimate Tic Tac Toe. All rights reserved.</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Cookie Policy</a></p>
+        </div>
+    </footer>
+
+    <!-- Audio Element for Background Music -->
+    <audio id="bg-music" loop>
+        <source src="https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3" type="audio/mpeg">
+    </audio>
+<script src="../js/landing.js"></script>
+ 
+</body>
+</html>

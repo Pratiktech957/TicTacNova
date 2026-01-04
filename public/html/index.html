@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Tic Tac Toe - Premium Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+
+</head>
+<body>
+    <div class="bg-animation"></div>
+    
+    <div class="particles" id="particles"></div>
+
+    <div class="loading" id="loading">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Loading Premium Experience...</div>
+        </div>
+    </div>
+
+    <div class="theme-switcher">
+        <button class="btn" id="themeBtn">🌙 Dark Mode</button>
+    </div>
+    
+    <div class="language-selector">
+        <select id="languageSelect">
+            <option value="en">🇺🇸 English</option>
+            <option value="es">🇪🇸 Español</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="de">🇩🇪 Deutsch</option>
+        </select>
+    </div>
+    
+    <div class="sound-controls">
+        <button class="btn" id="soundToggleBtn">🔊 Sound On</button>
+        <button class="btn" id="musicToggleBtn">🎵 Music On</button>
+    </div>
+
+    <div class="game-container">
+        <div class="sidebar">
+            <div class="logo">
+                <h1>TIC TAC TOE</h1>
+                <p>Premium Edition</p>
+                <div class="premium-badge">PREMIUM</div>
+            </div>
+
+            <div class="player-customization">
+                <div class="player-row">
+                    <div class="player-label">Player X:</div>
+                    <input type="text" class="player-input" id="playerXName" value="Player X" maxlength="12">
+                </div>
+                <div class="player-row">
+                    <div class="player-label">Player O:</div>
+                    <input type="text" class="player-input" id="playerOName" value="Player O" maxlength="12">
+                </div>
+                <button class="btn success" id="saveNamesBtn">Save Names</button>
+            </div>
+
+            <div class="status-card">
+                <div class="current-player">
+                    <div class="player-icon">X</div>
+                    <div id="currentPlayer">Player X's Turn</div>
+                </div>
+                <div class="game-status" id="gameStatus">Click a cell to play!</div>
+            </div>
+
+            <div class="scoreboard">
+                <div class="score-item">
+                    <div class="score-label">X Wins</div>
+                    <div class="score-value" id="xWins">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">Draws</div>
+                    <div class="score-value" id="draws">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">O Wins</div>
+                    <div class="score-value" id="oWins">0</div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <h3>⚡ Power Ups</h3>
+                <div class="power-ups">
+                    <div class="power-up" id="undoPower" title="Undo last move">
+                        <i class="fas fa-undo"></i>
+                    </div>
+                    <div class="power-up" id="swapPower" title="Swap positions">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <div class="power-up" id="blockPower" title="Block opponent">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <h3><i class="fas fa-gamepad"></i> Game Mode</h3>
+                <button class="btn active" id="vsPlayerBtn">👥 VS Player</button>
+                <button class="btn" id="vsAIBtn">🤖 VS AI</button>
+            </div>
+
+            <div class="control-group" id="aiDifficultyGroup" style="display: none;">
+                <h3><i class="fas fa-brain"></i> AI Difficulty</h3>
+                <select id="aiDifficulty">
+                    <option value="easy">🟢 Easy (Random)</option>
+                    <option value="medium" selected>🟡 Medium (Smart)</option>
+                    <option value="hard">🔴 Hard (Unbeatable)</option>
+                </select>
+                
+                <h3 style="margin-top: 15px;"><i class="fas fa-robot"></i> AI Personality</h3>
+                <select id="aiPersonality">
+                    <option value="friendly">😊 Friendly</option>
+                    <option value="competitive">🤺 Competitive</option>
+                    <option value="sarcastic">😏 Sarcastic</option>
+                </select>
+            </div>
+
+            <div class="voice-controls">
+                <h3><i class="fas fa-microphone"></i> Voice Commands</h3>
+                <button class="btn voice-btn" id="voiceBtn">🎤 Start Voice Command</button>
+                <div class="voice-help">
+                    Say position numbers 1-9:<br>
+                    "One", "Two", "Three", etc.<br>
+                    Or "Top left", "Center", "Bottom right"
+                </div>
+            </div>
+
+            <div class="control-group">
+                <h3><i class="fas fa-cog"></i> Game Controls</h3>
+                <button class="btn" id="resetBtn">🔄 Reset Game</button>
+                <button class="btn danger" id="newGameBtn">🆕 New Game</button>
+            </div>
+        </div>
+
+        <!-- Game Board Container -->
+        <div class="game-board-container">
+            <div class="game-board" id="gameBoard">
+                <div class="cell" data-index="0"></div>
+                <div class="cell" data-index="1"></div>
+                <div class="cell" data-index="2"></div>
+                <div class="cell" data-index="3"></div>
+                <div class="cell" data-index="4"></div>
+                <div class="cell" data-index="5"></div>
+                <div class="cell" data-index="6"></div>
+                <div class="cell" data-index="7"></div>
+                <div class="cell" data-index="8"></div>
+            </div>
+            
+            <!-- Stats Panel -->
+            <div class="stats-panel">
+                <div class="stats-header">
+                    <h3><i class="fas fa-chart-line"></i> Game Statistics</h3>
+                    <button class="btn" id="statsToggleBtn">Show More</button>
+                </div>
+                <div class="stats-content" id="statsContent">
+                    <div class="stat-card">
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Games Played</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">38%</div>
+                        <div class="stat-label">Win Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">Win Streak</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">2:18</div>
+                        <div class="stat-label">Avg. Game Time</div>
+                    </div>
+                </div>
+                
+                <div class="achievements">
+                    <div class="achievement">
+                        <div class="achievement-icon">🏆</div>
+                        First Win
+                    </div>
+                    <div class="achievement">
+                        <div class="achievement-icon">⚡</div>
+                        5 Wins
+                    </div>
+                    <div class="achievement locked">
+                        <div class="achievement-icon">🤖</div>
+                        Beat AI
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/game.js"></script>
+</body>
+</html>
+
